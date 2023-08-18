@@ -19,11 +19,18 @@ from django.urls import path
 from rest_framework.routers import SimpleRouter
 from rest_framework.authtoken import views
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-from users.api.views import UserProfileExampleViewSet
+from eventos.api.views import CertificadoViewSet, EventoViewSet, MinieventoViewSet, ProgramacaoViewSet
+from users.api.views import CoordenadorViewSet, ParticipanteViewSet, UserProfileExampleViewSet
 
 router = SimpleRouter()
 
 router.register("users", UserProfileExampleViewSet, basename="users")
+router.register("coordenadores", CoordenadorViewSet, basename="coordenadores")
+router.register("participantes", ParticipanteViewSet, basename="participantes")
+router.register("eventos", EventoViewSet, basename='eventos')
+router.register("minieventos", MinieventoViewSet, basename='minieventos')
+router.register("programacao", ProgramacaoViewSet, basename="programações")
+router.register("certificados", CertificadoViewSet, basename="certificados")
 
 urlpatterns = [
     path("admin/", admin.site.urls),

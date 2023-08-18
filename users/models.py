@@ -29,7 +29,7 @@ class Participante(models.Model):
         verbose_name_plural = "Participantes"
 
     def __str__(self):
-        return 
+        return self.user.username
 
 class Coordenador(models.Model):
     eventos = models.ForeignKey(Evento, on_delete=models.CASCADE)
@@ -38,6 +38,9 @@ class Coordenador(models.Model):
     class Meta:
         verbose_name = "Coordenador"
         verbose_name_plural = "Coordenadores"
+    
+    def __str__(self):
+        return self.user.username
 
 class Ministrante(models.Model):
     minieventos = models.ForeignKey(MiniEvento, on_delete=models.CASCADE)
@@ -45,6 +48,9 @@ class Ministrante(models.Model):
     class Meta:
         verbose_name = "Ministrante"
         verbose_name_plural = "Ministrantes"
+    
+    def __str__(self):
+        return self.user.username
 
 class Voluntario(models.Model):
     eventos = models.ForeignKey(Evento, on_delete=models.CASCADE)
@@ -53,6 +59,8 @@ class Voluntario(models.Model):
         verbose_name = "Voluntario"
         verbose_name_plural = "Voluntários"
 
+    def __str__(self):
+        return self.user.username
 class Patrocinador(models.Model):
     nome = models.CharField(max_length=150)
     cnpj = models.CharField(max_length=100)
@@ -61,3 +69,6 @@ class Patrocinador(models.Model):
     class Meta:
         verbose_name = "Patrocinador"
         verbose_name_plural = "Patrocinadores"
+
+    def __str__(self):
+        return self.user.username

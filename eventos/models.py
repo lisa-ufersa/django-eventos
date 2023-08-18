@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 class MiniEvento(models.Model):
+    tipo = models.CharField(max_length=150)
     titulo = models.CharField(max_length=150) 
     descricao = models.CharField(max_length=400)
     carga_horaria = models.IntegerField()
